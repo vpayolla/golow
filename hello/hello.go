@@ -5,6 +5,9 @@ import (
 	"time"
 )
 
+// create a cookie that violates the secure policy
+func SetCookie(w ResponseWriter, cookie *Cookie)
+
 func main() {
 	fmt.Println("Hello, world")
 
