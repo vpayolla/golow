@@ -15,6 +15,10 @@ func cookieHandler(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "Cookie set")
 }
 
+func Hello() string {
+	return "Hello, world"
+}
+
 func main() {
 	fmt.Println("Hello, World")
 
