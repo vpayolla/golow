@@ -48,7 +48,7 @@ jobs:
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
-        TEST_REPORT:${{needs.build.outputs.test-output}}
-        COVERAGE_REPORT:${{needs.build.outputs.coverage-output}}
+        TEST_REPORT: ${{needs.build.outputs.test-output}}
+        COVERAGE_REPORT: ${{needs.build.outputs.coverage-output}}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
