@@ -16,10 +16,10 @@ func cookieHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	fmt.Println("Hello, world")
+	fmt.Println("Hello, World")
 
 	// time.Sleep(1000 * time.Millisecond)
 	time.Sleep(1 * time.Second)
 
-	fmt.Println("Goodbye, world")
+	fmt.Println("Goodbye, World")
 }
