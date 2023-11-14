@@ -27,7 +27,7 @@ jobs:
       run: go build -o bin/ -v ./...
 
     - name: Test
-      run: go test -v ./...
+      run: go test -v ./... -json > report.json
 
     - name: Generate Test Coverage
       run: go test -coverprofile=cover.out ./hello-world/
