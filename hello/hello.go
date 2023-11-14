@@ -2,11 +2,17 @@ package main
 
 import (
 	"fmt"
+	"io"
+	"net/http"
 	"time"
 )
 
 // create a cookie that violates the secure policy
-func SetCookie(w ResponseWriter, cookie *Cookie)
+func cookieHandler(w http.ResponseWriter, r *http.Request) {
+	cookie := http.Cookie{Name: "session", Value: "12345", Secure: true}
+	http.SetCookie(w, &cookie)
+	io.WriteString(w, "Cookie set")
+}
 
 func main() {
 	fmt.Println("Hello, world")
