@@ -21,5 +21,7 @@ func main() {
 	// time.Sleep(1000 * time.Millisecond)
 	time.Sleep(1 * time.Second)
 
+	fmt.Println("Ready for business")
+
 	fmt.Println("Goodbye, World")
 }
