@@ -9,7 +9,8 @@ import (
 
 // create a cookie that violates the secure policy
 func cookieHandler(w http.ResponseWriter, r *http.Request) {
-	cookie := http.Cookie{Name: "session", Value: "12345", Secure: false}
+	//	cookie := http.Cookie{Name: "session", Value: "12345", Secure: true}
+	cookie := http.Cookie{Name: "session", Value: "12345"}
 	http.SetCookie(w, &cookie)
 	io.WriteString(w, "Cookie set")
 }
