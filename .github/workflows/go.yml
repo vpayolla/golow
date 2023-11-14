@@ -29,6 +29,9 @@ jobs:
     - name: Test
       run: go test -v ./...
 
+    - name: Generate Test Coverage
+      run: go test -coverprofile=cover.out ./hello-world/hello-world
+
   sonarcloud:
     runs-on: ubuntu-latest
     steps:
