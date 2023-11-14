@@ -30,12 +30,12 @@ jobs:
       run: go build -o bin/ -v ./...
 
     - name: Test
-#      run: go test -v ./... -json > report.json
-      run: go test -v ./... -json > "$GITHUB_OUTPUT"
+      run: go test -v ./... -json > report.json
+#      run: go test -v ./... -json > "$GITHUB_OUTPUT"
 
     - name: Coverage
-#      run: go test -coverprofile=cover.out ./hello-world/
-      run: go test -coverprofile ./hello-world/ > "$GITHUB_OUTPUT"
+      run: go test -coverprofile=cover.out ./hello-world/
+#      run: go test -coverprofile ./hello-world/ > "$GITHUB_OUTPUT"
 
   sonarcloud:
     runs-on: ubuntu-latest
