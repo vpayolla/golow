@@ -14,6 +14,9 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    outputs:
+      test-output:${{steps.Test.outputs.test }}
+      coverage-output:${{steps.Coverage.outputs.test}}
     steps:
     - uses: actions/checkout@v3
 
@@ -27,13 +30,16 @@ jobs:
       run: go build -o bin/ -v ./...
 
     - name: Test
-      run: go test -v ./... -json > report.json
+#      run: go test -v ./... -json > report.json
+      run: go test -v ./... -json > "$GITHUB_OUTPUT"
 
-    - name: Generate Test Coverage
-      run: go test -coverprofile=cover.out ./hello-world/
+    - name: Coverage
+#      run: go test -coverprofile=cover.out ./hello-world/
+      run: go test -coverprofile ./hello-world/ > "$GITHUB_OUTPUT"
 
   sonarcloud:
     runs-on: ubuntu-latest
+    needs: build
     steps:
     - uses: actions/checkout@v3
       with:
@@ -42,5 +48,7 @@ jobs:
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
+        TEST_REPORT:${{needs.build.outputs.test-output}}
+        COVERAGE_REPORT:${{needs.build.outputs.coverage-output}}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
