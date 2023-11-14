@@ -15,8 +15,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      test-output:${{steps.Test.outputs.test }}
-      coverage-output:${{steps.Coverage.outputs.test}}
+      test-output: ${{steps.Test.outputs.test }}
+      coverage-output: ${{steps.Coverage.outputs.test}}
     steps:
     - uses: actions/checkout@v3
 
