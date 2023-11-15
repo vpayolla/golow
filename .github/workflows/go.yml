@@ -95,7 +95,10 @@ jobs:
         fetch-depth: 0
     - uses: actions/setup-go@v2
     - run: go test -covermode=atomic -coverprofile=cover.out ./hello-world
-   
+
+    - uses: actions/setup-go@v2
+    - run: go test -v ./... -json > report.json
+
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
