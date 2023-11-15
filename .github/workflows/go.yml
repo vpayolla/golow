@@ -92,3 +92,6 @@ jobs:
         TEST_REPORT: ${{needs.build.outputs.t-output}}
         COVERAGE_REPORT: ${{needs.build.outputs.c-output}}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+#EOF
