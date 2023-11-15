@@ -33,8 +33,9 @@ jobs:
 
     - name: Test
 #      id: Test
-      run: go test -v ./... -json > report.json
+#      run: go test -v ./... -json > report.json
 #      run: go test -v ./... -json >> "$GITHUB_OUTPUT"
+      run: echo "Tees" >> "$GITHUB_OUTPUT"
 
     - name: Coverage
 #      id: Coverage
@@ -42,25 +43,25 @@ jobs:
 #      run: go test -coverprofile ./hello-world/ > "$GITHUB_OUTPUT"
 
 # Doing the Debug
-  job1:
-    runs-on: ubuntu-latest
+#  job1:
+#    runs-on: ubuntu-latest
     # Map a step output to a job output
-    outputs:
-      output11: ${{ steps.step1.outputs.test }}
-      output12: ${{ steps.step2.outputs.test }}
-    steps:
-      - id: step1
-        run: echo "test=hello" >> "$GITHUB_OUTPUT"
-      - id: step2
-        run: echo "test=world" >> "$GITHUB_OUTPUT"
-  job2:
-    runs-on: ubuntu-latest
-    needs: job1
-    steps:
-      - env:
-          OUTPUT11: ${{needs.job1.outputs.output11}}
-          OUTPUT12: ${{needs.job1.outputs.output12}}
-        run: echo "$OUTPUT11 $OUTPUT12"
+#    outputs:
+#      output11: ${{ steps.step1.outputs.test }}
+#      output12: ${{ steps.step2.outputs.test }}
+#    steps:
+#      - id: step1
+#        run: echo "test=hello" >> "$GITHUB_OUTPUT"
+#      - id: step2
+#        run: echo "test=world" >> "$GITHUB_OUTPUT"
+#  job2:
+#    runs-on: ubuntu-latest
+#    needs: job1
+#    steps:
+#      - env:
+#          OUTPUT11: ${{needs.job1.outputs.output11}}
+#          OUTPUT12: ${{needs.job1.outputs.output12}}
+#        run: echo "$OUTPUT11 $OUTPUT12"
   job3:
     runs-on: ubuntu-latest
     needs: build
@@ -68,8 +69,7 @@ jobs:
       - env:
           OUTPUT1: ${{needs.build.outputs.t-output}}
           OUTPUT2: ${{needs.build.outputs.c-output}}
-        run: echo "$OUTPUT1"
-#        run: echo "$OUTPUT2"
+        run: echo "$OUTPUT1 $OUTPUT2"
 
   sonarcloud:
     runs-on: ubuntu-latest
