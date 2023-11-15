@@ -35,7 +35,7 @@ jobs:
 
     - name: Setup Test Output
 #      id: builds
-      run: mkdir -p /github/workspace/
+      run: sudo mkdir -p /github/workspace/
 
     - name: Test
       id: Test
