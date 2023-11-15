@@ -93,6 +93,9 @@ jobs:
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
+    - uses: actions/setup-go@v2
+    - run: go test -covermode=atomic -coverprofile=coverage.out ./hello-world
+   
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
