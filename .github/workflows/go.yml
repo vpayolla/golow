@@ -38,9 +38,10 @@ jobs:
       run: echo "test=Tees" >> "$GITHUB_OUTPUT"
 
     - name: Coverage
-#      id: Coverage
-      run: go test -coverprofile=cover.out ./hello-world/
+      id: Coverage
+#      run: go test -coverprofile=cover.out ./hello-world/
 #      run: go test -coverprofile ./hello-world/ > "$GITHUB_OUTPUT"
+      run: echo "test=Cees" >> "$GITHUB_OUTPUT"
 
 # Doing the Debug
 #  job1:
