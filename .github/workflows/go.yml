@@ -16,9 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
 #      t-output: ${{steps.Test.outputs.test }}
-#      c-output: ${{steps.Coverage.outputs.test}}
+      c-output: ${{steps.Coverage.outputs.test}}
       t-output: "report.json"
-      c-output: "cover.out"
+#      c-output: "cover.out"
     steps:
     - uses: actions/checkout@v3
     
@@ -41,8 +41,8 @@ jobs:
 
     - name: Coverage
       id: Coverage
-      run: go test -coverprofile=cover.out ./hello-world/
-#      run: go test -coverprofile ./hello-world/ > "$GITHUB_OUTPUT"
+#      run: go test -coverprofile=cover.out ./hello-world/
+      run: go test -coverprofile ./hello-world/ > "$GITHUB_OUTPUT"
 #      run: echo "test=Cees" >> "$GITHUB_OUTPUT"
 
 #    - name: Coverage-Report
