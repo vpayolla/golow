@@ -35,7 +35,8 @@ jobs:
 
     - name: Test
       id: Test
-      run: go test -v ./... -json > report.json
+      run: go test -v ./... -json > /github/workspace/report.json
+#      run: go test -v ./... -json > report.json
 #      run: go test -v ./... -json >> "$GITHUB_OUTPUT"
 #      run: echo "test=Tees" >> "$GITHUB_OUTPUT"
 
