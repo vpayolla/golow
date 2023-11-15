@@ -15,8 +15,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      t-output: ${{steps.Test.outputs.test }}
-      c-output: ${{steps.Coverage.outputs.test}}
+#      t-output: ${{steps.Test.outputs.test }}
+#      c-output: ${{steps.Coverage.outputs.test}}
+      t-output: "report.json"
+      c-output: "cover.out"
     steps:
     - uses: actions/checkout@v3
     
@@ -37,15 +39,15 @@ jobs:
 #      run: go test -v ./... -json >> "$GITHUB_OUTPUT"
 #      run: echo "test=Tees" >> "$GITHUB_OUTPUT"
 
-    - name: Coverage Report
-      id: Coverage-Report
+    - name: Coverage
+      id: Coverage
       run: go test -coverprofile=cover.out ./hello-world/
 #      run: go test -coverprofile ./hello-world/ > "$GITHUB_OUTPUT"
 #      run: echo "test=Cees" >> "$GITHUB_OUTPUT"
 
-    - name: Coverage
-      id: Coverage
-      run: cat cover.out >> "$GITHUB_OUTPUT"
+#    - name: Coverage-Report
+#      id: Coverage-Report
+#      run: cat cover.out >> "$GITHUB_OUTPUT"
 
 # Doing the Debug
 #  job1:
