@@ -17,7 +17,8 @@ jobs:
     outputs:
 #      t-output: ${{steps.Test.outputs.test }}
 #      c-output: ${{steps.Coverage.outputs.test}}
-      t-output: "report.json"
+      t-output: "/github/workspace/report.json"
+#      t-output: "report.json"
       c-output: "cover.out"
     steps:
     - uses: actions/checkout@v3
@@ -35,8 +36,8 @@ jobs:
 
     - name: Test
       id: Test
-      run: go test -v ./... -json > /github/workspace/report.json
-#      run: go test -v ./... -json > report.json
+#      run: go test -v ./... -json > /github/workspace/report.json
+      run: go test -v ./... -json > report.json
 #      run: go test -v ./... -json >> "$GITHUB_OUTPUT"
 #      run: echo "test=Tees" >> "$GITHUB_OUTPUT"
 
