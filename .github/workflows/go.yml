@@ -35,7 +35,7 @@ jobs:
 
     - name: Setup Test Output
 #      id: builds
-      run: sudo mkdir -p /github/workspace/
+      run: sudo mkdir -p /github/workspace/ && sudo chmod 777 $_
 
     - name: Test
       id: Test
