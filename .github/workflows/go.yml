@@ -42,7 +42,7 @@ jobs:
 #      run: go test -coverprofile ./hello-world/ > "$GITHUB_OUTPUT"
 
 # Doing the Debug
-    job1:
+  job1:
     runs-on: ubuntu-latest
     # Map a step output to a job output
     outputs:
