@@ -17,8 +17,7 @@ jobs:
     outputs:
 #      t-output: ${{steps.Test.outputs.test }}
 #      c-output: ${{steps.Coverage.outputs.test}}
-      t-output: "/github/workspace/report.json"
-#      t-output: "report.json"
+      t-output: "report.json"
       c-output: "cover.out"
     steps:
     - uses: actions/checkout@v3
