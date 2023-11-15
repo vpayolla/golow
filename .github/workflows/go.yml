@@ -45,7 +45,7 @@ jobs:
 
     - name: Coverage
       id: Coverage
-      run: cat cover.olut >> "$GITHUB_OUTPUT"
+      run: cat cover.out >> "$GITHUB_OUTPUT"
 
 # Doing the Debug
 #  job1:
